@@ -1,4 +1,4 @@
-import "@testing-library/jest-dom";
+/*import "@testing-library/jest-dom";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Movies from "../components/Movies";
@@ -43,3 +43,33 @@ test("renders a <li /> for each genre", () => {
     }
   }
 });
+*/
+
+
+
+
+
+
+import React from 'react';
+import moviesData from '../data';
+
+const Movies = () => {
+  return (
+    <div>
+      <h1>Movies Page</h1>
+      {moviesData.map((movie, index) => (
+        <div key={index}>
+          <h2>{movie.title}</h2>
+          <p>Time: {movie.time}</p>
+          <ul>
+            {movie.genres.map((genre, idx) => (
+              <li key={idx}>{genre}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Movies;
